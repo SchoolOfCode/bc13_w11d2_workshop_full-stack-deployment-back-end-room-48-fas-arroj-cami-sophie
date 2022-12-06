@@ -5,14 +5,14 @@ const router = express.Router();
 
 /* GET shopping list. */
 router.get("/", async (req, res) => {
-  const data = await getShoppingList();
-  res.json({ success: true, payload: data });
+	const data = await getShoppingList();
+	res.json({ success: true, payload: data });
 });
 
 router.post("/", async (req, res) => {
-  const { listItem } = req.body;
-  const result = await postListItem(listItem);
-  res.status(201).json({ success: true, payload: result });
+	const listItem = req.body;
+	const result = await postListItem(listItem);
+	res.status(201).json({ success: true, payload: result });
 });
 
 export default router;
